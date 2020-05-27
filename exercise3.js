@@ -8,9 +8,14 @@
 
 
 //your code...
+function isEmpty(string){
+    
+   return (!string || /^\s*$/.test(string));
 
+}
 
-
+console.log(isEmpty("bob"));
+console.log(isEmpty(""));
 
 
 /************************************************************* */
@@ -21,13 +26,22 @@
 
 
 //your code...
+let excitedString = "Learning JavaScript is fun!";
 
-
+function lastWordReplacer(newWord){
+    stringToArray = excitedString.split(" ");
+    popper = stringToArray.pop();
+    stringToArray.push(newWord);
+    excitedString = stringToArray.join(" ");
+    console.log(excitedString);
+}
+lastWordReplacer("cool!");
 
 
 /************************************************************* */
 // Problem 3:
-// Write a function that declares an array of numbers from one to five and returns another array with the squared value of each number from the first array. Use an arrow function and one of the built-in array methods. 
+// Write a function that declares an array of numbers from one to five and returns another array with the squared value of each number from the first array. 
+// Use an arrow function and one of the built-in array methods. 
 
 
 
@@ -36,6 +50,14 @@
 
 
 
+
+function arrayOfNums(){
+    const nums = [1, 2, 3, 4, 5];
+    let newArray = nums.map(num => num * num);
+    console.log(newArray);
+    return newArray;
+}
+arrayOfNums();
 
 
 /************************************************************* */
@@ -45,7 +67,9 @@
 
 
 //your code...
+const arrOfNums = [1, 3, 5, 7, 9, 1, 3, 5];
 
+console.log(arrOfNums.filter(num => num > 3));
 
 
 
@@ -59,9 +83,10 @@
 
 //your code...
 
+const arrOfNums2 = [10,20,30,40,50];
 
 
-
+console.log(arrOfNums2.reduce((a,b) => a + b, 0));
 
 
 /************************************************************* */
@@ -73,8 +98,32 @@
 
 
 //your code...
-
-
+function dnaMatch(string){
+    let stringToArray = string.split("");
+    let complementaryStrand=[];
+    for(letter of stringToArray){
+        switch(letter){
+            case "G":
+                complementaryStrand.push("C");
+            break;
+            case "C":
+                complementaryStrand.push("G");
+            break;
+            case "T":
+                complementaryStrand.push("A");
+            break;
+            case "A":
+                complementaryStrand.push("T");
+            break;
+            default:
+                console.log("No DNA strand provided");    
+        }
+    }
+    
+    console.log(complementaryStrand);
+    console.log(complementaryStrand.join(""));
+}
+dnaMatch("GCTA");
 
 
 
@@ -88,6 +137,8 @@ const numbers = [2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23
 function maxNumber(numbers) {
     //your code...
 }
+
+
 
 // 7.b -Write a function that sorts the given numbers array.  Allow the function to sort the array in descending order
 
