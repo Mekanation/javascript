@@ -131,12 +131,40 @@ dnaMatch("GCTA");
 /************************************************************* */
 // Problem 7:
 
-// 7.a - Write a function to find the maximum numerical value of the given array.  Get rid of any non numerical values.  Convert the strings that are numbers to an actual number data type.  ("one" => 1) ("1" => 1).  Use array methods to perform this task.  
+// 7.a - Write a function to find the maximum numerical value of the given array.  Get rid of any non numerical values.  
+//Convert the strings that are numbers to an actual number data type.  ("one" => 1) ("1" => 1).  Use array methods to perform this task.  
 const numbers = [2,23,1,2,1,1,1,2,2.5,20,200,2000,,{k:1},20000,19999,1878,140,23,4,"sk",true,true,"true-dat","nice","one","two","three","3","tea",[]];
+
+
 
 function maxNumber(numbers) {
     //your code...
+    let newArray = [];
+
+    let map1 = numbers.map(num => {
+        if(Number.isInteger(num)){
+            newArray.push(num);
+        }else if(num == "one"){
+            newArray.push(1);
+        }else if(num == "two"){
+            newArray.push(2)
+        }else if(num == "three"){
+            newArray.push(3);
+        }else if(num == "3"){
+            newArray.push(3);
+        }else if(num.k == 1){
+            newArray.push(1);
+
+        }else {
+            return delete(num);
+        }
+
+    
+    });
+   return Math.max(...newArray);
+
 }
+console.log(maxNumber(numbers));
 
 
 
@@ -144,43 +172,69 @@ function maxNumber(numbers) {
 
 function sortNums(numbers,desc=false) {
     //your code...
+    return numbers.sort().reverse();
 };
 
 
-
+console.log(sortNums(numbers,false));
 
 /************************************************************* */
 // Problem 8:
-//add an example of at least 5 JavaScript data types to the given mapObj.  The key is the example data type, and the value is the name of the data type.  An object data type has already been set as the 1st key / val pair.
+//add an example of at least 5 JavaScript data types to the given mapObj.  The key is the example data type, and the value is the name of the data type.  
+//An object data type has already been set as the 1st key / val pair.
 
 const mapObj = new Map();
-mapObj.set({company : "TEKsystems"},"object");
+mapObj.set("object",{company : "TEKsystems"});
+mapObj.set("integer", 1);
+mapObj.set("boolean", false);
+mapObj.set("array", []);
+mapObj.set("string", "this is a string");
+    
 
-
-console.log(mapObj.has({company : "TEKsystems"}));  
-//The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on line 106, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
+//The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  
+//Refactor the code on line 106, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
 
 //your code...
-
+console.log(mapObj.has('object'));  
+console.log("it is returning false because you are asking if it has the value instead of the key. ")
 //loop through the mapObj and create a new array of only the data types, leaving out the example keys of the mapObj.  Use array methods to do this.  Example output : ['string',number','boolean',array','object']
-
+console.log(mapObj.keys());
 
 /************************************************************* */
 //Problem 11:
 
 let ones = [1,11,111,1111,11111,111111,1111111,11111111,111111111,1111111111];
 //reverse the array, without modifying the ones array.
-
+console.log(ones.reverse());
 
 /************************************************************* */
 //Problem 12:
 //create a function called performer(cb) that takes in a callback function and runs that callback function.  It should return the output of the callback function.
+function greeting(name){
+    console.log('Hello ' + name);
+}
 
 function performer(cb) {
     //code goes here
+    var name = 'Caleb';
+    cb(name);
 }
+performer(greeting);
 
 
 /************************************************************* */
 //Bonus assignment:
 //research a new feature of ES6+ and create an example of it's use case here.  Be sure to write comments explaining what the feature is and why it is useful.
+
+
+//Template Literals in ES6
+
+let name = "Rosa"
+
+var sayName = "Your name is " + name + "."; // this is the old way
+
+var sayNameNew = `Your name is ${name}.` //this is the new way in es6. This allows for much cleaner code as you are inserting the variables directly. 
+                                        //Note - You need to use backticks ` instead of "" or ''. This also allows for you to write almost normally. 
+
+console.log(sayName);
+console.log(sayNameNew);
