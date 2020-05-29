@@ -9,7 +9,7 @@ const minutes = document.querySelector('#minutes');
 const seconds = document.querySelector('#seconds');
 
 // let minutesConverter = Math.floor(time/60);
-let time = 75;
+let time = 0;
 
 function counter(){
     
